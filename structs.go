@@ -177,6 +177,10 @@ type Invite struct {
 	Revoked   bool      `json:"revoked"`
 	Temporary bool      `json:"temporary"`
 	Unique    bool      `json:"unique"`
+
+	// will only be filled when using InviteWithCounts
+	ApproximatePresenceCount int `json:"approximate_presence_count"`
+	ApproximateMemberCount   int `json:"approximate_member_count"`
 }
 
 // ChannelType is the type of a Channel
@@ -234,6 +238,9 @@ type Channel struct {
 
 	// A list of permission overwrites present for the channel.
 	PermissionOverwrites []*PermissionOverwrite `json:"permission_overwrites"`
+
+	// The user limit of the voice channel.
+	UserLimit int `json:"user_limit"`
 
 	// The ID of the parent channel, if the channel is under a category
 	ParentID string `json:"parent_id"`
